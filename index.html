@@ -300,6 +300,46 @@ html{scrollbar-color:var(--maroon) var(--paper-2)}
 @keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
 @media(max-width:820px){.scroll-cue{display:none}}
 
+/* ---------- inspiration pass: accents, mono labels, serve split, collage ---------- */
+.h2 .acc{font-style:normal;color:var(--orange-deep)}
+.mono{font-family:ui-monospace,'SF Mono','Cascadia Mono',Menlo,monospace}
+.chip .n,.count-line,.kicker .num{font-family:ui-monospace,'SF Mono',Menlo,monospace}
+
+#serve{background:var(--paper);border-bottom:1px solid var(--line)}
+.serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+.serve{border-radius:22px;padding:36px 32px;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s}
+.serve:hover{transform:translateY(-5px);box-shadow:0 20px 55px rgba(94,13,22,.14)}
+.serve.s-light{background:var(--card);border:1px solid var(--line)}
+.serve.s-tint{background:var(--tint-orange);border:1px solid #f3ddc2}
+.serve.s-dark{background:#241015;color:#f5ece6}
+.serve .s-ico{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--tint-maroon);margin-bottom:18px}
+.serve .s-ico svg{stroke:var(--maroon)}
+.serve.s-dark .s-ico{background:rgba(243,134,52,.16)}
+.serve.s-dark .s-ico svg{stroke:var(--orange)}
+.serve h3{font-size:22px;font-weight:600;margin-bottom:6px}
+.serve .s-sub{font-size:13.5px;color:var(--grey);margin-bottom:20px}
+.serve.s-dark .s-sub{color:rgba(245,236,230,.65)}
+.serve ol{list-style:none;flex:1}
+.serve ol li{display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.serve.s-tint ol li{border-color:#eed3b4}
+.serve.s-dark ol li{border-color:rgba(255,255,255,.1);color:rgba(245,236,230,.82)}
+.serve ol li i{font-style:normal;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--orange-deep);padding-top:2px}
+.serve .s-link{margin-top:20px;font-size:14px;font-weight:600;color:var(--maroon);display:inline-flex;align-items:center;gap:7px;cursor:pointer;transition:gap .2s}
+.serve .s-link:hover{gap:12px}
+.serve.s-dark .s-link{color:var(--orange)}
+@media(max-width:920px){.serve-grid{grid-template-columns:1fr}}
+
+/* Dasra-style collage */
+.trust-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.collage{position:relative;width:340px;height:230px;flex:none}
+.collage .c-img{position:absolute;border-radius:6px;object-fit:cover;box-shadow:0 12px 34px rgba(94,13,22,.2)}
+.collage .c-img.a{width:170px;height:120px;top:0;left:0;transform:rotate(-3deg);z-index:2}
+.collage .c-img.b{width:150px;height:150px;top:36px;right:24px;transform:rotate(2.5deg);z-index:3}
+.collage .c-img.c{width:130px;height:92px;bottom:0;left:70px;transform:rotate(-1.5deg);z-index:4}
+.collage::before{content:"";position:absolute;width:120px;height:90px;background:var(--orange);top:14px;left:118px;transform:rotate(4deg);border-radius:4px}
+.collage::after{content:"";position:absolute;width:100px;height:76px;background:var(--maroon);bottom:10px;right:0;transform:rotate(-5deg);border-radius:4px;opacity:.85}
+@media(max-width:820px){.collage{display:none}}
+
 /* ---------- preloader ---------- */
 #loader{position:fixed;inset:0;background:linear-gradient(135deg,var(--maroon-dark),#3a0a10);z-index:120;display:flex;align-items:center;justify-content:center;transition:transform .85s cubic-bezier(.76,0,.24,1)}
 #loader.done{transform:translateY(-101%)}
@@ -420,7 +460,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
   <div class="wrap">
     <div class="reveal">
       <div class="kicker"><span class="num">01</span>Pick your domain</div>
-      <h2 class="h2">Where do you work?<br>We've probably built there.</h2>
+      <h2 class="h2">Where do you work?<br>We've probably <span class="acc">built</span> there.</h2>
       <p class="lede">Click a domain to see every solution we've delivered in it — with maturity ratings and scale numbers.</p>
     </div>
     <div class="tile-grid" id="tileGrid"></div>
@@ -432,7 +472,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
     <div class="explorer-head reveal">
       <div>
         <div class="kicker"><span class="num">02</span>The full catalogue</div>
-        <h2 class="h2">68 solutions, one search away</h2>
+        <h2 class="h2">68 solutions, <span class="acc">one search</span> away</h2>
         <p class="lede">Filter by sector or search for exactly what you need — from malnutrition tracking to FPO ERPs.</p>
       </div>
       <div class="search">
@@ -497,11 +537,56 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
   </div>
 </section>
 
+<section id="serve">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker"><span class="num">04</span>Who we serve</div>
+      <h2 class="h2">One team. <span class="acc">Three</span> kinds of partners.</h2>
+      <p class="lede">Whether you fund programs, run them, or govern them — there's a shelf of proven tools waiting.</p>
+    </div>
+    <div class="serve-grid">
+      <div class="serve s-light reveal">
+        <div class="s-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Donors, CSRs &amp; Foundations</h3>
+        <div class="s-sub">Funders managing portfolios of partners and programs</div>
+        <ol>
+          <li><i>01</i>Grant &amp; CSR lifecycle management on mGrant</li>
+          <li><i>02</i>Partner due diligence, compliance &amp; fund tracking</li>
+          <li><i>03</i>Impact dashboards &amp; SDG reporting for boards</li>
+        </ol>
+        <span class="s-link" data-go="money">See grant &amp; money tools <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+      <div class="serve s-tint reveal">
+        <div class="s-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>NGOs &amp; Implementers</h3>
+        <div class="s-sub">Organisations delivering programs in the field</div>
+        <ol>
+          <li><i>01</i>Offline-first field data collection &amp; program MIS</li>
+          <li><i>02</i>Sector solutions — health, agri, education, livelihoods</li>
+          <li><i>03</i>Learning platforms &amp; frontline capacity building</li>
+        </ol>
+        <span class="s-link" data-go="all">Browse all 68 solutions <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+      <div class="serve s-dark reveal">
+        <div class="s-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M5 22V11M19 22V11M3 11h18L12 3 3 11z"/><path d="M9 22v-6h6v6"/></svg></div>
+        <h3>Governments &amp; Multilaterals</h3>
+        <div class="s-sub">Ministries, missions and agencies serving citizens</div>
+        <ol>
+          <li><i>01</i>Public portals &amp; financial transparency platforms</li>
+          <li><i>02</i>National program dashboards &amp; analytics</li>
+          <li><i>03</i>IVR, chatbots &amp; citizen service delivery</li>
+        </ol>
+        <span class="s-link" data-go="gov">See governance solutions <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="cases">
   <div class="wrap">
     <div class="reveal">
-      <div class="kicker"><span class="num">04</span>Proof, not promises</div>
-      <h2 class="h2">Case stories with the<br>real screens behind them</h2>
+      <div class="kicker"><span class="num">05</span>Proof, not promises</div>
+      <h2 class="h2">Case stories with the<br><span class="acc">real screens</span> behind them</h2>
       <p class="lede">Twelve deployments across sectors, with genuine product screenshots. Partner identities are anonymised in this public catalogue — full named references are shared in conversation.</p>
     </div>
     <div class="case-grid" id="caseGrid"></div>
@@ -511,7 +596,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
 <section id="footprint">
   <div class="wrap">
     <div class="reveal">
-      <div class="kicker"><span class="num">05</span>Footprint</div>
+      <div class="kicker"><span class="num">06</span>Footprint</div>
       <h2 class="h2">From national ministries<br>to the last village</h2>
     </div>
     <div class="map-flex reveal">
@@ -530,9 +615,16 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
 
 <section id="trust">
   <div class="wrap">
-    <div class="reveal">
-      <div class="kicker"><span class="num">06</span>Why Dhwani</div>
-      <h2 class="h2">Built for the sector,<br>from inside the sector</h2>
+    <div class="trust-head reveal">
+      <div>
+        <div class="kicker"><span class="num">07</span>Why Dhwani</div>
+        <h2 class="h2">Built <span class="acc">for</span> the sector,<br>from <span class="acc">inside</span> the sector</h2>
+      </div>
+      <div class="collage" aria-hidden="true">
+        <img class="c-img a" loading="lazy" src="https://images.unsplash.com/photo-1623211269755-569fec0536d2?auto=format&fit=crop&w=400&q=62" alt="">
+        <img class="c-img b" loading="lazy" src="https://images.unsplash.com/photo-1597743622436-c6b5661731e0?auto=format&fit=crop&w=400&q=62" alt="">
+        <img class="c-img c" loading="lazy" src="https://images.unsplash.com/photo-1707721690544-781fe6ede937?auto=format&fit=crop&w=400&q=62" alt="">
+      </div>
     </div>
     <div class="trust-grid">
       <div class="trust reveal">
@@ -902,6 +994,7 @@ document.getElementById("tileGrid").addEventListener("click",e=>{
 });
 searchBox.addEventListener("input",render);
 render();
+document.querySelectorAll(".s-link").forEach(l=>l.addEventListener("click",()=>{setDomain(l.dataset.go);document.getElementById("explorer").scrollIntoView({behavior:"smooth"});}));
 
 /* ============ solution drawer ============ */
 const drawer=document.getElementById("drawer"),drawerBg=document.getElementById("drawerBg");
