@@ -152,6 +152,7 @@ nav.solid .burger svg{stroke:var(--ink)}
 .drawer .d-head>*{position:relative;z-index:2}
 .drawer .d-dom{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f9b988;display:flex;align-items:center;gap:8px}
 .drawer .d-head h3{font-size:26px;font-weight:600;line-height:1.2;margin-top:8px;position:relative;z-index:1}
+.d-owner{font-size:12px;font-weight:600;color:rgba(255,255,255,.78);margin-top:12px}
 .drawer .d-head .badge{margin-top:14px;background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.35)}
 .drawer .d-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2}
 .drawer .d-body{padding:28px 32px 40px}
@@ -487,9 +488,9 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
         <input id="searchBox" type="text" placeholder="Try 'malnutrition' or 'FPO'…" aria-label="Search solutions">
       </div>
     </div>
-    <div class="chip-label">By sector</div>
+    <div class="chip-label">Programmatic tech · by sector</div>
     <div class="chip-row" id="sectorChips"></div>
-    <div class="chip-label">Cross-sector</div>
+    <div class="chip-label">Back office tech · by owning function</div>
     <div class="chip-row" id="crossChips"></div>
     <div class="count-line" id="countLine"></div>
     <div class="sol-grid" id="solGrid"></div>
@@ -561,7 +562,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
           <li><i>02</i>Partner due diligence, compliance &amp; fund tracking</li>
           <li><i>03</i>Impact dashboards &amp; SDG reporting for boards</li>
         </ol>
-        <span class="s-link" data-go="money">See grant &amp; money tools <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="s-link" data-go="gg">See grant &amp; money tools <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
       <div class="serve s-tint reveal">
         <div class="s-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -706,14 +707,19 @@ const SECTORS=[
  {id:"climate",name:"Climate & Environment",img:"https://images.unsplash.com/photo-1751609492149-e93de149a832?auto=format&fit=crop&w=700&q=68",blurb:"Watershed monitoring, early warning, disaster response coordination."},
  {id:"gov",name:"Good Governance",img:"https://images.unsplash.com/photo-1601689892697-b64daa00ff6d?auto=format&fit=crop&w=700&q=68",blurb:"Village planning, transparency portals, IVR services, GBV case management."},
  {id:"ent",name:"Entrepreneurship",img:"https://images.unsplash.com/photo-1608363907208-cb00a6577e61?auto=format&fit=crop&w=700&q=68",blurb:"Nano-entrepreneur bookkeeping, incubation support, youth enterprise hubs."},
- {id:"cross",name:"Cross-sector platforms",img:null,blurb:"Grant management, LMS, dashboards, AI — the engines behind every sector."}
+ {id:"back",name:"Back Office Tech",img:null,blurb:"Grants & giving, finance, people & culture, knowledge & IT — the systems that run the organisation itself."}
 ];
-const CROSS=[
- {id:"money",name:"Money & Grant Management"},
- {id:"impact",name:"Delivery & Impact"},
- {id:"people",name:"People & Capability"},
- {id:"tech",name:"Enterprise & Emerging Tech"}
+const PROGX=[
+ {id:"mel",name:"Program Management & MEL"},
+ {id:"chan",name:"Beneficiary Channels & AI"}
 ];
+const BACK=[
+ {id:"gg",name:"Grants & Giving Office"},
+ {id:"fin",name:"Finance & Compliance"},
+ {id:"pc",name:"People & Culture"},
+ {id:"ops",name:"Knowledge & IT Ops"}
+];
+const CROSS=[...PROGX,...BACK];
 const SOLUTIONS=[
  {d:"health",n:"Mobile Health Unit (MHU) MIS",b:"proven",p:"Fleet, patient and service MIS for mobile clinics — scheduling, diagnosis records, referrals and route-level reporting.",s:"60+ units running via NGO partners"},
  {d:"health",n:"Child Immunization Tracking",b:"tested",p:"Track every child against the immunization schedule with due-date alerts for frontline workers and program dashboards."},
@@ -755,34 +761,34 @@ const SOLUTIONS=[
  {d:"ent",n:"Nano-Entrepreneur Bookkeeping App",b:"tested",p:"Simple mobile bookkeeping for nano and micro entrepreneurs — sales, expenses, credit."},
  {d:"ent",n:"Doorstep Incubation Support Platform",b:"tested",p:"Field-based incubation: mentor visits, milestones and support tracking for rural enterprises."},
  {d:"ent",n:"Youth Career & Entrepreneurship Hub",b:"tested",p:"One-stop platform connecting youth to skilling, careers and enterprise support."},
- {d:"money",n:"Grant Management System",b:"proven",p:"End-to-end grant lifecycle: NGO onboarding and due diligence, proposal review, disbursement, KPI reporting.",s:"₹3,000+ Cr budget tracked on mGrant"},
- {d:"money",n:"Donor Management System",b:"proven",p:"Donor relationships, giving history and stewardship communication in one place."},
- {d:"money",n:"Fundraising CRM",b:"proven",p:"Donor acquisition and relationship platform tailored to non-profit fundraising teams."},
- {d:"money",n:"NGO/CSO Accounting Platform",b:"proven",p:"Fund accounting and FCRA-compliant bookkeeping built for Indian non-profits."},
- {d:"money",n:"Expense Management System",b:"proven",p:"Structured expense tracking and approvals across projects and field teams."},
- {d:"money",n:"Procurement Platform for CSR/Donors",b:"dev",p:"Vendor selection, approvals and compliance documentation for donor-funded procurement."},
- {d:"impact",n:"Project & Program Management System",b:"proven",p:"Project plans, field activity, beneficiary data and impact reporting on one platform."},
- {d:"impact",n:"Knowledge Management System",b:"ready",p:"Organisational knowledge, SOPs and field learning in a searchable repository."},
- {d:"impact",n:"Document Management System",b:"ready",p:"Centralised, access-controlled document storage for programs and compliance."},
- {d:"people",n:"Learning Management System",b:"proven",p:"Configurable e-learning for staff, frontline workers and beneficiaries.",s:"30+ organisations on mLearn"},
- {d:"people",n:"Skilling Portal",b:"proven",p:"Training delivery, alumni tracking, mentorship, placement verification and CV building.",s:"Sector-tested at national scale"},
- {d:"people",n:"Student Assessment Portal",b:"proven",p:"Psychometric and domain-based testing with automated scoring and cohort analytics."},
- {d:"people",n:"Training Management Portal",b:"ready",p:"Plan, schedule and track training programs and attendance."},
- {d:"people",n:"Mentorship Platform",b:"proven",p:"Connects corporate volunteers to beneficiaries across education, skilling and livelihoods."},
- {d:"people",n:"Volunteering Portal",b:"proven",p:"Employee-volunteering management for corporates: opportunities, hours, impact."},
- {d:"people",n:"Scholarship Portal",b:"proven",p:"Applicant screening, disbursement tracking and reporting for scholarship programs."},
- {d:"tech",n:"IVRS (Voice Response Systems)",b:"proven",p:"Interactive voice systems for outreach, surveys and services in low-connectivity contexts."},
- {d:"tech",n:"Chatbots (WhatsApp-native)",b:"proven",p:"WhatsApp-integrated bots for citizen services, program FAQs and data collection.",s:"20+ organisations"},
- {d:"tech",n:"Generative AI Solutions",b:"tested",p:"Conversational AI, voice-enabled assessments, NLP and predictive analytics for programs."},
- {d:"tech",n:"HRMS Portal",b:"ready",p:"HR management for growing development organisations."},
- {d:"tech",n:"ERPNext Implementation",b:"proven",p:"Implementation and customisation of the open-source ERPNext suite."},
- {d:"tech",n:"ESG Platform",b:"tested",p:"ESG data capture, scoring and disclosure reporting."},
- {d:"tech",n:"Decision Support / Analytics Portal",b:"proven",p:"Custom analytics portals that turn program data into decisions."},
- {d:"tech",n:"Public Data & Transparency Portals",b:"proven",p:"Public-facing open-data platforms for programs and government initiatives."},
- {d:"tech",n:"CRM for Lead Gen & Onboarding",b:"ready",p:"Lead generation, onboarding and training pipelines for outreach-heavy programs."},
- {d:"tech",n:"Website Development",b:"proven",p:"Fast, accessible websites for non-profits and programs."},
- {d:"tech",n:"Voice AI",b:"tested",p:"Speech interfaces and voice-based assessments in Indian languages."},
- {d:"tech",n:"Tech-enabled Due Diligence",b:"tested",p:"Digital workflows for NGO due diligence and partner assessment."}
+ {d:"gg",n:"Grant Management System",b:"proven",p:"End-to-end grant lifecycle: NGO onboarding and due diligence, proposal review, disbursement, KPI reporting.",s:"₹3,000+ Cr budget tracked on mGrant"},
+ {d:"gg",n:"Donor Management System",b:"proven",p:"Donor relationships, giving history and stewardship communication in one place."},
+ {d:"gg",n:"Fundraising CRM",b:"proven",p:"Donor acquisition and relationship platform tailored to non-profit fundraising teams."},
+ {d:"fin",n:"NGO/CSO Accounting Platform",b:"proven",p:"Fund accounting and FCRA-compliant bookkeeping built for Indian non-profits."},
+ {d:"fin",n:"Expense Management System",b:"proven",p:"Structured expense tracking and approvals across projects and field teams."},
+ {d:"gg",n:"Procurement Platform for CSR/Donors",b:"dev",p:"Vendor selection, approvals and compliance documentation for donor-funded procurement."},
+ {d:"mel",d2:"ops",n:"Project & Program Management System",b:"proven",p:"Project plans, field activity, beneficiary data and impact reporting on one platform."},
+ {d:"ops",n:"Knowledge Management System",b:"ready",p:"Organisational knowledge, SOPs and field learning in a searchable repository."},
+ {d:"ops",n:"Document Management System",b:"ready",p:"Centralised, access-controlled document storage for programs and compliance."},
+ {d:"edu",d2:"pc",n:"Learning Management System",b:"proven",p:"Configurable e-learning for staff, frontline workers and beneficiaries.",s:"30+ organisations on mLearn"},
+ {d:"edu",n:"Skilling Portal",b:"proven",p:"Training delivery, alumni tracking, mentorship, placement verification and CV building.",s:"Sector-tested at national scale"},
+ {d:"edu",n:"Student Assessment Portal",b:"proven",p:"Psychometric and domain-based testing with automated scoring and cohort analytics."},
+ {d:"edu",n:"Training Management Portal",b:"ready",p:"Plan, schedule and track training programs and attendance."},
+ {d:"edu",n:"Mentorship Platform",b:"proven",p:"Connects corporate volunteers to beneficiaries across education, skilling and livelihoods."},
+ {d:"gg",n:"Volunteering Portal",b:"proven",p:"Employee-volunteering management for corporates: opportunities, hours, impact."},
+ {d:"edu",n:"Scholarship Portal",b:"proven",p:"Applicant screening, disbursement tracking and reporting for scholarship programs."},
+ {d:"chan",n:"IVRS (Voice Response Systems)",b:"proven",p:"Interactive voice systems for outreach, surveys and services in low-connectivity contexts."},
+ {d:"chan",n:"Chatbots (WhatsApp-native)",b:"proven",p:"WhatsApp-integrated bots for citizen services, program FAQs and data collection.",s:"20+ organisations"},
+ {d:"chan",n:"Generative AI Solutions",b:"tested",p:"Conversational AI, voice-enabled assessments, NLP and predictive analytics for programs."},
+ {d:"pc",n:"HRMS Portal",b:"ready",p:"HR management for growing development organisations."},
+ {d:"ops",n:"ERPNext Implementation",b:"proven",p:"Implementation and customisation of the open-source ERPNext suite."},
+ {d:"fin",n:"ESG Platform",b:"tested",p:"ESG data capture, scoring and disclosure reporting."},
+ {d:"mel",n:"Decision Support / Analytics Portal",b:"proven",p:"Custom analytics portals that turn program data into decisions."},
+ {d:"mel",n:"Public Data & Transparency Portals",b:"proven",p:"Public-facing open-data platforms for programs and government initiatives."},
+ {d:"chan",n:"CRM for Lead Gen & Onboarding",b:"ready",p:"Lead generation, onboarding and training pipelines for outreach-heavy programs."},
+ {d:"ops",n:"Website Development",b:"proven",p:"Fast, accessible websites for non-profits and programs."},
+ {d:"chan",n:"Voice AI",b:"tested",p:"Speech interfaces and voice-based assessments in Indian languages."},
+ {d:"gg",n:"Tech-enabled Due Diligence",b:"tested",p:"Digital workflows for NGO due diligence and partner assessment."}
 ];
 const BADGE={proven:["proven","Proven at scale"],tested:["tested","Sector-tested"],ready:["ready","Ready to deploy"],dev:["dev","In development"]};
 const DOMICON={
@@ -947,10 +953,10 @@ fillMarquee(document.getElementById("mq1"),LOGOS.slice(0,15));
 fillMarquee(document.getElementById("mq2"),LOGOS.slice(15));
 
 /* ============ domain tiles ============ */
-const counts={};SOLUTIONS.forEach(s=>counts[s.d]=(counts[s.d]||0)+1);
-const crossCount=CROSS.reduce((a,c)=>a+(counts[c.id]||0),0);
+const counts={};SOLUTIONS.forEach(s=>{counts[s.d]=(counts[s.d]||0)+1;if(s.d2)counts[s.d2]=(counts[s.d2]||0)+1;});
+const backCount=BACK.reduce((a,c)=>a+(counts[c.id]||0),0);const isBack=id=>BACK.some(c=>c.id===id);
 document.getElementById("tileGrid").innerHTML=SECTORS.map(s=>{
-  const n=s.id==="cross"?crossCount:(counts[s.id]||0);
+  const n=s.id==="back"?backCount:(counts[s.id]||0);
   const media=s.img?`<img loading="lazy" src="${s.img}" alt="${s.name}">`:`<div style="position:absolute;inset:0;background:linear-gradient(135deg,#871320,#d96a14)"></div>`;
   return `<div class="tile reveal" data-d="${s.id}">
     ${media}
@@ -965,14 +971,14 @@ const grid=document.getElementById("solGrid"),searchBox=document.getElementById(
 const countLine=document.getElementById("countLine"),emptyMsg=document.getElementById("emptyMsg");
 let activeDom="all",FILTERED=[];
 const chipHtml=(c,count)=>`<button class="chip" data-d="${c.id}">${c.name}<span class="n">${count}</span></button>`;
-sectorChips.innerHTML=`<button class="chip active" data-d="all">All solutions<span class="n">${SOLUTIONS.length}</span></button>`+SECTORS.filter(s=>s.id!=="cross").map(c=>chipHtml(c,counts[c.id]||0)).join("");
-crossChips.innerHTML=CROSS.map(c=>chipHtml(c,counts[c.id]||0)).join("");
+sectorChips.innerHTML=`<button class="chip active" data-d="all">All solutions<span class="n">${SOLUTIONS.length}</span></button>`+SECTORS.filter(s=>s.id!=="back").map(c=>chipHtml(c,counts[c.id]||0)).join("")+PROGX.map(c=>chipHtml(c,counts[c.id]||0)).join("");
+crossChips.innerHTML=BACK.map(c=>chipHtml(c,counts[c.id]||0)).join("");
 const domName=id=>{const f=[...SECTORS,...CROSS].find(x=>x.id===id);return f?f.name:""};
 function render(){
   const q=searchBox.value.trim().toLowerCase();
   const items=SOLUTIONS.filter(s=>{
-    const inDom=activeDom==="all"||s.d===activeDom||(activeDom==="cross"&&CROSS.some(c=>c.id===s.d));
-    return inDom&&(!q||(s.n+" "+s.p+" "+domName(s.d)).toLowerCase().includes(q));
+    const inDom=activeDom==="all"||s.d===activeDom||s.d2===activeDom||(activeDom==="back"&&(isBack(s.d)||isBack(s.d2)));
+    return inDom&&(!q||(s.n+" "+s.p+" "+domName(s.d)+" "+(s.d2?domName(s.d2):"")).toLowerCase().includes(q));
   });
   grid.innerHTML=items.map(s=>{
     const[cls,label]=BADGE[s.b];
@@ -1011,7 +1017,10 @@ const drawer=document.getElementById("drawer"),drawerBg=document.getElementById(
 const U=id=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1000&q=68`;
 const P={amb:U("1686797366685-6420f4bd9c2f"),vac:U("1591914227461-0b2c2c2eb6a9"),ncd:U("1647541735875-ee07d6dce257"),eld:U("1606385881194-10b786d723ee"),chw:U("1596450514537-fae68a81346b"),tailor:U("1521401415461-83e7162b8e64"),sewing:U("1616674202799-054e7c831378"),mandi:U("1632261845881-52acc7d3c76a"),drying:U("1661932912841-7557bed41c1d"),goats:U("1619254039763-ed4413bd5efe"),village:U("1586618770443-e6f8167fca61"),flood:U("1661868678297-74f842b03ce4"),motherchild:U("1707811180272-53a54a905d14"),farmerportrait:U("1707811179851-c1f93698ad46"),sowing:U("1623211269755-569fec0536d2"),plough:U("1623211270083-5743da6c67ec"),oxen:U("1609252509027-3928a66302fd"),classroom:U("1597743622436-c6b5661731e0"),girl:U("1572847748080-bac263fae977"),handpump:U("1751609492149-e93de149a832"),monsoon:U("1723362492018-cd52ab313bb3"),rainhand:U("1619260584294-8a4e63f5ade5"),shgfield:U("1609252509229-364936a1d1a2"),womenwork:U("1707721690544-781fe6ede937"),gathering:U("1601689892697-b64daa00ff6d"),vendor:U("1608363907208-cb00a6577e61")};
 Object.assign(P,{soil:U("1781778234375-4960fe45384f"),rupees:U("1565514020432-9f4e84f5bf6f"),agents:U("1712159018726-4564d92f3ec2"),headset:U("1553775282-20af80779df7"),grads:U("1658235081452-c2ded30b8d9f"),mentor:U("1692269725827-699e04a11cdf"),studygrp:U("1677479186767-39b909caa164"),storm:U("1774861753072-8c9e86d4bbb2"),checkdam:U("1623003511694-3880864e6bb2"),schoolkids:U("1627654770877-6d888135d594")});
+Object.assign(DOMICON,{mel:DOMICON.impact,chan:DOMICON.tech,gg:DOMICON.money,fin:DOMICON.social,pc:DOMICON.people,ops:DOMICON.tech});
+const OWNER={health:"Program & CSR delivery teams",agri:"Program & CSR delivery teams",edu:"Program & CSR delivery teams",social:"Program & CSR delivery teams",climate:"Program & CSR delivery teams",gov:"Program & CSR delivery teams",ent:"Program & CSR delivery teams",mel:"M&E / MEL teams & program leadership",chan:"Program outreach & communications teams",gg:"CSR / grants & giving office",fin:"Finance & compliance teams",pc:"HR / people & culture",ops:"Operations & IT"};
 const DOMIMG={health:P.chw,agri:P.sowing,edu:P.classroom,social:P.womenwork,climate:P.handpump,gov:P.gathering,ent:P.vendor,money:ASSET["case-csr.jpg"],impact:ASSET["case-orgperf.jpg"],people:ASSET["case-skilling.jpg"],tech:ASSET["case-ultrapoor.jpg"]};
+Object.assign(DOMIMG,{mel:ASSET["case-ultrapoor.jpg"],chan:P.headset,gg:ASSET["case-csr.jpg"],fin:P.rupees,pc:ASSET["case-orgperf.jpg"],ops:ASSET["case-municipalfinance.jpg"]});
 const SOLIMG={
 "Mobile Health Unit (MHU) MIS":P.amb,"Child Immunization Tracking":P.vac,"Malnutrition Tracking":P.motherchild,"Community Feedback on Health Facilities":P.gathering,"Facility Assessment & Certification":P.eld,"NCD Screening App":P.ncd,"HIV Counselling App":P.chw,"Menstrual Hygiene Management Portal":P.womenwork,
 "FPO ERP":P.sowing,"Soil Testing Platform Integration":P.oxen,"Agri Input Supply Chain Platform":P.plough,"Commodity Procurement Platform":P.mandi,"Crop Insurance Portal":P.rainhand,"Livestock ERP":P.goats,"Commodity Quality Management":P.drying,"Cooperative Membership Platform":P.shgfield,"Irrigation MIS":P.monsoon,
@@ -1061,6 +1070,7 @@ function openDrawer(i){
      <div class="d-dom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f9b988" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${DOMICON[s.d]||DOMICON.tech}</svg>${domName(s.d)}</div>
      <h3>${s.n}</h3>
      <span class="badge ${cls}">${label}</span>
+     <div class="d-owner">Owned by ${OWNER[s.d]||"program teams"}${s.d2?` · also under ${domName(s.d2)}`:""}</div>
    </div>
    <div class="d-body">
      <h4>About this solution</h4><p>${s.full||s.p}</p>
