@@ -492,6 +492,8 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
     <div class="chip-row" id="sectorChips"></div>
     <div class="chip-label">Back office tech · by owning function</div>
     <div class="chip-row" id="crossChips"></div>
+    <div class="chip-label">By maturity</div>
+    <div class="chip-row" id="matChips"></div>
     <div class="count-line" id="countLine"></div>
     <div class="sol-grid" id="solGrid"></div>
     <div class="empty" id="emptyMsg">No solutions match that search — but that rarely means we haven't done it. <a href="#contact">Ask us.</a></div>
@@ -703,7 +705,7 @@ const SECTORS=[
  {id:"health",name:"Healthcare",img:"https://images.unsplash.com/photo-1707811180272-53a54a905d14?auto=format&fit=crop&w=700&q=68",blurb:"Mobile health units, immunization, malnutrition, NCD screening and more."},
  {id:"agri",name:"Agriculture & Livelihoods",img:"https://images.unsplash.com/photo-1623211269755-569fec0536d2?auto=format&fit=crop&w=700&q=68",blurb:"FPO ERPs, procurement, soil testing, livestock, crop insurance."},
  {id:"edu",name:"Education & Skilling",img:"https://images.unsplash.com/photo-1597743622436-c6b5661731e0?auto=format&fit=crop&w=700&q=68",blurb:"Student tracking, admissions, teacher training, career counselling."},
- {id:"social",name:"Social Protection",img:"https://images.unsplash.com/photo-1707721690544-781fe6ede937?auto=format&fit=crop&w=700&q=68",blurb:"Scheme entitlements, financial literacy, MFI lending systems."},
+ {id:"social",name:"Social Protection & Financial Inclusion",img:"https://images.unsplash.com/photo-1707721690544-781fe6ede937?auto=format&fit=crop&w=700&q=68",blurb:"Scheme entitlements, financial literacy, MFI lending, SHG–bank linkage."},
  {id:"climate",name:"Climate & Environment",img:"https://images.unsplash.com/photo-1751609492149-e93de149a832?auto=format&fit=crop&w=700&q=68",blurb:"Watershed monitoring, early warning, disaster response coordination."},
  {id:"gov",name:"Good Governance",img:"https://images.unsplash.com/photo-1601689892697-b64daa00ff6d?auto=format&fit=crop&w=700&q=68",blurb:"Village planning, transparency portals, IVR services, GBV case management."},
  {id:"ent",name:"Entrepreneurship",img:"https://images.unsplash.com/photo-1608363907208-cb00a6577e61?auto=format&fit=crop&w=700&q=68",blurb:"Nano-entrepreneur bookkeeping, incubation support, youth enterprise hubs."},
@@ -711,7 +713,7 @@ const SECTORS=[
 ];
 const PROGX=[
  {id:"mel",name:"Program Management & MEL"},
- {id:"chan",name:"Beneficiary Channels & AI"}
+ {id:"chan",name:"Digital Channels & AI"}
 ];
 const BACK=[
  {id:"gg",name:"Grants & Giving Office"},
@@ -751,13 +753,13 @@ const SOLUTIONS=[
  {d:"climate",n:"Watershed Monitoring Portal",b:"proven",p:"MGNREGA-aligned planning and monitoring of soil and water conservation works, ridge to valley.",s:"54 blocks, 7 rivers in one state program"},
  {d:"gov",n:"Community Needs Assessment (GPDP)",b:"tested",p:"Participatory needs assessment and Gram Panchayat Development Plan preparation."},
  {d:"gov",n:"Village Development Planning",b:"tested",p:"Village-level data, prioritisation and plan tracking for development programs."},
- {d:"gov",n:"Public Financial Transparency Portal",b:"proven",p:"Public-facing portals that open up budgets and financial performance of local bodies.",s:"4,000+ urban local bodies covered"},
+ {d:"gov",n:"Public Financial Transparency Portal",b:"proven",p:"The flagship implementation: national public disclosure of local-body budgets and audited accounts, for a central ministry.",s:"4,000+ urban local bodies covered"},
  {d:"gov",n:"Grassroots Leadership Application Portal",b:"proven",p:"Application, screening and selection pipeline for grassroots leadership programs.",s:"Scaled 500 → 3,000 applications/year"},
  {d:"gov",n:"IVR Citizen Information Centre",b:"proven",p:"Voice-first citizen information and service delivery, built for low-literacy, low-connectivity contexts.",s:"10+ years of continuous operation"},
  {d:"gov",n:"Call Centre Campaign & Grievance Management",b:"tested",p:"Outbound campaign management and inbound grievance tracking with SLA workflows.",s:"1,000+ SHG women served in one state"},
- {d:"gov",n:"GBV Case Management System",b:"tested",p:"Confidential case intake, referral and follow-up management for gender-based violence response."},
+ {d:"social",n:"GBV Case Management System",b:"tested",p:"Confidential case intake, referral and follow-up management for gender-based violence response."},
  {d:"gov",n:"Community Welfare Group Profiling",b:"tested",p:"Profile, monitor and strengthen community collectives and welfare groups."},
- {d:"gov",n:"SHG Bank Loan Digitisation",b:"proven",p:"Digitised bank-linkage loan applications for women's self-help groups, later handed over to a national government body.",s:"₹50,000+ Cr in loan applications processed"},
+ {d:"social",n:"SHG Bank Loan Digitisation",b:"proven",p:"Digitised bank-linkage loan applications for women's self-help groups, later handed over to a national government body.",s:"₹50,000+ Cr in loan applications processed"},
  {d:"ent",n:"Nano-Entrepreneur Bookkeeping App",b:"tested",p:"Simple mobile bookkeeping for nano and micro entrepreneurs — sales, expenses, credit."},
  {d:"ent",n:"Doorstep Incubation Support Platform",b:"tested",p:"Field-based incubation: mentor visits, milestones and support tracking for rural enterprises."},
  {d:"ent",n:"Youth Career & Entrepreneurship Hub",b:"tested",p:"One-stop platform connecting youth to skilling, careers and enterprise support."},
@@ -771,12 +773,12 @@ const SOLUTIONS=[
  {d:"ops",n:"Knowledge Management System",b:"ready",p:"Organisational knowledge, SOPs and field learning in a searchable repository."},
  {d:"ops",n:"Document Management System",b:"ready",p:"Centralised, access-controlled document storage for programs and compliance."},
  {d:"edu",d2:"pc",n:"Learning Management System",b:"proven",p:"Configurable e-learning for staff, frontline workers and beneficiaries.",s:"30+ organisations on mLearn"},
- {d:"edu",n:"Skilling Portal",b:"proven",p:"Training delivery, alumni tracking, mentorship, placement verification and CV building.",s:"Sector-tested at national scale"},
+ {d:"edu",n:"Skilling Portal",b:"proven",p:"Operations MIS for skilling centres — mobilisation, batch management, attendance, training, placement and centre ops.",s:"Sector-tested at national scale"},
  {d:"edu",n:"Student Assessment Portal",b:"proven",p:"Psychometric and domain-based testing with automated scoring and cohort analytics."},
- {d:"edu",n:"Training Management Portal",b:"ready",p:"Plan, schedule and track training programs and attendance."},
+ {d:"edu",d2:"pc",n:"Training Management Portal",b:"ready",p:"Plan, schedule and track training programs and attendance."},
  {d:"edu",n:"Mentorship Platform",b:"proven",p:"Connects corporate volunteers to beneficiaries across education, skilling and livelihoods."},
- {d:"gg",n:"Volunteering Portal",b:"proven",p:"Employee-volunteering management for corporates: opportunities, hours, impact."},
- {d:"edu",n:"Scholarship Portal",b:"proven",p:"Applicant screening, disbursement tracking and reporting for scholarship programs."},
+ {d:"gg",d2:"pc",n:"Volunteering Portal",b:"proven",p:"Employee-volunteering management for corporates: opportunities, hours, impact."},
+ {d:"edu",d2:"gg",n:"Scholarship Portal",b:"proven",p:"Applicant screening, disbursement tracking and reporting for scholarship programs."},
  {d:"chan",n:"IVRS (Voice Response Systems)",b:"proven",p:"Interactive voice systems for outreach, surveys and services in low-connectivity contexts."},
  {d:"chan",n:"Chatbots (WhatsApp-native)",b:"proven",p:"WhatsApp-integrated bots for citizen services, program FAQs and data collection.",s:"20+ organisations"},
  {d:"chan",n:"Generative AI Solutions",b:"tested",p:"Conversational AI, voice-enabled assessments, NLP and predictive analytics for programs."},
@@ -784,7 +786,7 @@ const SOLUTIONS=[
  {d:"ops",n:"ERPNext Implementation",b:"proven",p:"Implementation and customisation of the open-source ERPNext suite."},
  {d:"fin",n:"ESG Platform",b:"tested",p:"ESG data capture, scoring and disclosure reporting."},
  {d:"mel",n:"Decision Support / Analytics Portal",b:"proven",p:"Custom analytics portals that turn program data into decisions."},
- {d:"mel",n:"Public Data & Transparency Portals",b:"proven",p:"Public-facing open-data platforms for programs and government initiatives."},
+ {d:"mel",n:"Public Data & Transparency Portals",b:"proven",p:"The generic capability: citizen- and stakeholder-facing open-data portals for any program or government dataset."},
  {d:"chan",n:"CRM for Lead Gen & Onboarding",b:"ready",p:"Lead generation, onboarding and training pipelines for outreach-heavy programs."},
  {d:"ops",n:"Website Development",b:"proven",p:"Fast, accessible websites for non-profits and programs."},
  {d:"chan",n:"Voice AI",b:"tested",p:"Speech interfaces and voice-based assessments in Indian languages."},
@@ -816,7 +818,7 @@ const DETAILS={
 "Knowledge Management System":{full:"A structured repository for organisational knowledge, SOPs and field learning, helping teams capture and reuse institutional knowledge across programme cycles.",chips:["SOP repository","Field learning capture","Search & reuse"]},
 "Document Management System":{full:"Centralised, access-controlled storage and retrieval for programme documentation, compliance records and reporting artefacts.",chips:["Access control","Version management","Compliance records"]},
 "Learning Management System":{full:"A learning platform for NGOs and donor organisations to deliver structured training content, track completion and build internal capability.",chips:["Course delivery","Completion tracking","Assessments & certificates"],plat:"mLearn"},
-"Skilling Portal":{full:"A modular MIS for skilling and livelihood programmes covering alumni tracking, mentorship, training delivery, placement verification and CV building — refined over a decade of skilling-sector implementations, deployable module-by-module or as a full suite.",chips:["Alumni tracking","Placement verification","Training delivery","CV building","Mentorship"],case:3},
+"Skilling Portal":{full:"An end-to-end operations MIS for skilling and livelihood centres — it runs the centre, not just the course: candidate mobilisation, batch management, attendance, training delivery, assessments, placement verification and alumni tracking. Refined over a decade of skilling-sector implementations, deployable module-by-module or as a full suite.",chips:["Candidate mobilisation","Batch & attendance management","Training delivery","Placement verification","Alumni tracking","Centre operations"],case:3},
 "Student Assessment Portal":{full:"A dedicated assessment tool for skilling and education programmes, supporting psychometric and domain-based testing at admission or through the course.",chips:["Psychometric testing","Domain tests","Cohort analytics"]},
 "Training Management Portal":{full:"A platform to plan, schedule and track training delivery and participant feedback across teacher training, staff onboarding and capacity-building programmes.",chips:["Scheduling","Attendance","Participant feedback"],plat:"mLearn"},
 "Mentorship Platform":{full:"Connects corporate volunteers and professionals with beneficiaries — from career counselling for students to guidance for rural youth and women entrepreneurs — as shared mentorship infrastructure across education, skilling and livelihood programmes.",chips:["Mentor-mentee matching","Session tracking","Cross-program infrastructure"]},
@@ -852,7 +854,7 @@ const DETAILS={
 "Watershed Monitoring Portal":{full:"A GIS-enabled monitoring platform for watershed development work under India's national rural employment guarantee programme, coordinating with district and state administration on natural resource management.",chips:["GIS-enabled monitoring","MGNREGA alignment","District & state coordination"],plat:"DaaS",case:8},
 "Community Needs Assessment (GPDP)":{full:"A participatory planning platform aligned with the Gram Panchayat Development Plan process, supporting village-level need assessment and plan submission to line departments.",chips:["Participatory assessment","GPDP alignment","Line-department submission"],plat:"mForm"},
 "Village Development Planning":{full:"A saturation-survey and infrastructure-tracking platform used to plan and monitor village development commitments linked to corporate infrastructure projects.",chips:["Saturation surveys","Infrastructure tracking","Commitment monitoring"],plat:"mForm"},
-"Public Financial Transparency Portal":{full:"A public-facing portal enabling local government bodies to disclose income and expenditure data, hosted under a central ministry initiative.",chips:["Public disclosure","Budget & expenditure data","Ministry-hosted"],plat:"DaaS",case:0},
+"Public Financial Transparency Portal":{full:"A specific, nationally scaled implementation: a public portal disclosing income, expenditure and audited accounts of urban local bodies, hosted under a central ministry initiative and covering 4,000+ cities. For the generic open-data capability, see Public Data & Transparency Portals under Program Management & MEL.",chips:["Budget & audited-accounts disclosure","4,000+ urban local bodies","Ministry-hosted"],plat:"DaaS",case:0},
 "Grassroots Leadership Application Portal":{full:"A digital application and screening platform that helped a partner leadership programme scale from 500 to 3,000 annual applications by moving from a paper-based to a fully digital process.",chips:["Application intake","Screening pipeline","6x scale-up"]},
 "IVR Citizen Information Centre":{full:"A toll-free interactive voice response platform delivering localised citizen information services — in continuous operation for over a decade.",chips:["Toll-free IVR","Localised content","10+ years uptime"]},
 "Call Centre Campaign & Grievance Management":{full:"An inbound/outbound call centre platform supporting government feedback campaigns and worker-protection grievance helplines.",chips:["Inbound & outbound","Grievance SLAs","Campaign management"]},
@@ -869,7 +871,7 @@ const DETAILS={
 "ERPNext Implementation":{full:"Full ERP implementation and customisation for organisations standardising on the ERPNext platform.",chips:["Implementation","Customisation","Open-source stack"]},
 "ESG Platform":{full:"Environmental, social and governance reporting and disclosure tooling for corporates.",chips:["ESG data capture","Scoring","Disclosure reporting"]},
 "Decision Support / Analytics Portal":{full:"Dashboards and analytics layers that convert programme data into actionable insight for leadership and donors.",chips:["Leadership dashboards","KPI development","Donor reporting"],plat:"DaaS",case:7},
-"Public Data & Transparency Portals":{full:"Citizen- and stakeholder-facing portals for public disclosure of programme or government data.",chips:["Public-facing portals","Open data","Stakeholder access"],plat:"DaaS",case:5},
+"Public Data & Transparency Portals":{full:"The broader capability behind our transparency work: designing and hosting citizen- and stakeholder-facing portals that publish program or government data — dashboards, public downloads and APIs. The national municipal-finance portal is its flagship implementation.",chips:["Open-data portals","Dashboards & APIs","Public & stakeholder access"],plat:"DaaS",case:5},
 "CRM for Lead Gen & Onboarding":{full:"Pipeline and onboarding management for organisations running structured outreach or training-led acquisition.",chips:["Lead pipeline","Onboarding","Training-led acquisition"]},
 "Website Development":{full:"Institutional and programme websites for non-profits, foundations and government bodies.",chips:["Institutional sites","Program microsites","Accessible & fast"]},
 "Voice AI":{full:"Voice-based automation and interaction layers built on modern speech AI, including voice-enabled assessments in Indian languages.",chips:["Speech interfaces","Indian languages","Voice assessments"]},
@@ -969,16 +971,19 @@ document.getElementById("tileGrid").innerHTML=SECTORS.map(s=>{
 const sectorChips=document.getElementById("sectorChips"),crossChips=document.getElementById("crossChips");
 const grid=document.getElementById("solGrid"),searchBox=document.getElementById("searchBox");
 const countLine=document.getElementById("countLine"),emptyMsg=document.getElementById("emptyMsg");
-let activeDom="all",FILTERED=[];
+let activeDom="all",activeMat="all",FILTERED=[];
 const chipHtml=(c,count)=>`<button class="chip" data-d="${c.id}">${c.name}<span class="n">${count}</span></button>`;
 sectorChips.innerHTML=`<button class="chip active" data-d="all">All solutions<span class="n">${SOLUTIONS.length}</span></button>`+SECTORS.filter(s=>s.id!=="back").map(c=>chipHtml(c,counts[c.id]||0)).join("")+PROGX.map(c=>chipHtml(c,counts[c.id]||0)).join("");
 crossChips.innerHTML=BACK.map(c=>chipHtml(c,counts[c.id]||0)).join("");
+const matChips=document.getElementById("matChips");
+matChips.innerHTML=[["all","All maturity"],["proven","Proven at scale"],["tested","Sector-tested"],["ready","Ready to deploy"],["dev","In development"]].map(([id,name])=>`<button class="chip${id==="all"?" active":""}" data-m="${id}">${name}<span class="n">${id==="all"?SOLUTIONS.length:SOLUTIONS.filter(s=>s.b===id).length}</span></button>`).join("");
+matChips.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;activeMat=b.dataset.m;matChips.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c.dataset.m===activeMat));render();});
 const domName=id=>{const f=[...SECTORS,...CROSS].find(x=>x.id===id);return f?f.name:""};
 function render(){
   const q=searchBox.value.trim().toLowerCase();
   const items=SOLUTIONS.filter(s=>{
     const inDom=activeDom==="all"||s.d===activeDom||s.d2===activeDom||(activeDom==="back"&&(isBack(s.d)||isBack(s.d2)));
-    return inDom&&(!q||(s.n+" "+s.p+" "+domName(s.d)+" "+(s.d2?domName(s.d2):"")).toLowerCase().includes(q));
+    return inDom&&(activeMat==="all"||s.b===activeMat)&&(!q||(s.n+" "+s.p+" "+domName(s.d)+" "+(s.d2?domName(s.d2):"")).toLowerCase().includes(q));
   });
   grid.innerHTML=items.map(s=>{
     const[cls,label]=BADGE[s.b];
@@ -996,8 +1001,8 @@ function render(){
 }
 function setDomain(d){
   activeDom=d;
-  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c.dataset.d===d));
-  if(!document.querySelector(`.chip[data-d="${d}"]`))document.querySelector('.chip[data-d="all"]').classList.add("active");
+  document.querySelectorAll("#sectorChips .chip,#crossChips .chip").forEach(c=>c.classList.toggle("active",c.dataset.d===d));
+  if(!document.querySelector(`#sectorChips .chip[data-d="${d}"],#crossChips .chip[data-d="${d}"]`))document.querySelector('.chip[data-d="all"]').classList.add("active");
   render();
   const subj=d==="all"?"Partnership enquiry — Dhwani Digital Solutions":`Partnership enquiry — ${domName(d)||"Cross-sector"} solutions`;
   document.getElementById("ctaMail").href=`mailto:sunandan@dhwaniris.com?subject=${encodeURIComponent(subj)}`;
