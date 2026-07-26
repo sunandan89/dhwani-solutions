@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dhwani RIS — Digital Solutions Catalogue</title>
-<meta name="description" content="Technology for the development sector: 68 digital solutions across Health, Agriculture, Education, Climate, Governance and more. 300+ projects, 140+ clients, 6 countries.">
+<meta name="description" content="Technology for the development sector: 69 digital solutions across Health, Agriculture, Education, Climate, Governance and more. 300+ projects, 140+ clients, 6 countries.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -438,7 +438,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
   <div class="wrap">
     <div class="hero-kicker">Dhwani RIS · Technology for the development sector</div>
     <h1>&ldquo;What have you built in&nbsp;<span class="rotator" id="rotator">Health</span>?&rdquo;<br><em>Glad you asked.</em></h1>
-    <p class="sub">68 digital solutions across every domain where impact happens — built since 2012 for foundations, non-profits, CSRs, governments and multilaterals.</p>
+    <p class="sub">69 digital solutions across every domain where impact happens — built since 2012 for foundations, non-profits, CSRs, governments and multilaterals.</p>
     <div class="hero-cta">
       <a class="btn btn-white" href="#domains">Explore by domain
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
@@ -480,7 +480,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
     <div class="explorer-head reveal">
       <div>
         <div class="kicker"><span class="num">02</span>The full catalogue</div>
-        <h2 class="h2">68 solutions, <span class="acc">one search</span> away</h2>
+        <h2 class="h2">69 solutions, <span class="acc">one search</span> away</h2>
         <p class="lede">Filter by sector or search for exactly what you need — from malnutrition tracking to FPO ERPs.</p>
       </div>
       <div class="search">
@@ -494,6 +494,8 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
     <div class="chip-row" id="crossChips"></div>
     <div class="chip-label">By maturity</div>
     <div class="chip-row" id="matChips"></div>
+    <div class="chip-label">Who are you?</div>
+    <div class="chip-row" id="whoChips"></div>
     <div class="count-line" id="countLine"></div>
     <div class="sol-grid" id="solGrid"></div>
     <div class="empty" id="emptyMsg">No solutions match that search — but that rarely means we haven't done it. <a href="#contact">Ask us.</a></div>
@@ -575,7 +577,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
           <li><i>02</i>Sector solutions — health, agri, education, livelihoods</li>
           <li><i>03</i>Learning platforms &amp; frontline capacity building</li>
         </ol>
-        <span class="s-link" data-go="all">Browse all 68 solutions <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="s-link" data-go="all">Browse all 69 solutions <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
       <div class="serve s-dark reveal">
         <div class="s-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M5 22V11M19 22V11M3 11h18L12 3 3 11z"/><path d="M9 22v-6h6v6"/></svg></div>
@@ -784,13 +786,14 @@ const SOLUTIONS=[
  {d:"chan",n:"Generative AI Solutions",b:"tested",p:"Conversational AI, voice-enabled assessments, NLP and predictive analytics for programs."},
  {d:"pc",n:"HRMS Portal",b:"ready",p:"HR management for growing development organisations."},
  {d:"ops",n:"ERPNext Implementation",b:"proven",p:"Implementation and customisation of the open-source ERPNext suite."},
+ {d:"ops",n:"CloudSahayak — Cloud & Cost Optimization",b:"proven",p:"Cloud consulting for non-profits: AWS cost optimization, migration, DevOps and cloud security.",s:"40+ organisations · 30–40% cloud cost savings"},
  {d:"fin",n:"ESG Platform",b:"tested",p:"ESG data capture, scoring and disclosure reporting."},
  {d:"mel",n:"Decision Support / Analytics Portal",b:"proven",p:"Custom analytics portals that turn program data into decisions."},
  {d:"mel",n:"Public Data & Transparency Portals",b:"proven",p:"The generic capability: citizen- and stakeholder-facing open-data portals for any program or government dataset."},
  {d:"chan",n:"CRM for Lead Gen & Onboarding",b:"ready",p:"Lead generation, onboarding and training pipelines for outreach-heavy programs."},
  {d:"ops",n:"Website Development",b:"proven",p:"Fast, accessible websites for non-profits and programs."},
  {d:"chan",n:"Voice AI",b:"tested",p:"Speech interfaces and voice-based assessments in Indian languages."},
- {d:"gg",n:"Tech-enabled Due Diligence",b:"tested",p:"Digital workflows for NGO due diligence and partner assessment."}
+ {d:"ops",n:"Tech-enabled Due Diligence",b:"tested",p:"Digital workflows for NGO due diligence and partner assessment."}
 ];
 const BADGE={proven:["proven","Proven at scale"],tested:["tested","Sector-tested"],ready:["ready","Ready to deploy"],dev:["dev","In development"]};
 const DOMICON={
@@ -875,9 +878,13 @@ const DETAILS={
 "CRM for Lead Gen & Onboarding":{full:"Pipeline and onboarding management for organisations running structured outreach or training-led acquisition.",chips:["Lead pipeline","Onboarding","Training-led acquisition"]},
 "Website Development":{full:"Institutional and programme websites for non-profits, foundations and government bodies.",chips:["Institutional sites","Program microsites","Accessible & fast"]},
 "Voice AI":{full:"Voice-based automation and interaction layers built on modern speech AI, including voice-enabled assessments in Indian languages.",chips:["Speech interfaces","Indian languages","Voice assessments"]},
-"Tech-enabled Due Diligence":{full:"Digitised due-diligence workflows to speed up and standardise partner and vendor assessment.",chips:["Partner assessment","Standardised workflows","Faster turnaround"]}
+"Tech-enabled Due Diligence":{full:"Digitised due-diligence workflows to speed up and standardise partner and vendor assessment.",chips:["Partner assessment","Standardised workflows","Faster turnaround"]},
+"CloudSahayak — Cloud & Cost Optimization":{full:"Dhwani's dedicated cloud practice for the development sector: cloud consulting, AWS cost optimization, cloud migration, DevOps and cloud security — packaged for non-profit budgets. 40+ organisations supported, with cloud bills typically reduced by 30–40%.",chips:["Cloud cost optimization","AWS migration","DevOps & managed infra","Cloud security"],url:"https://cloudsahayak.dhwaniris.com"}
 };
 SOLUTIONS.forEach(s=>Object.assign(s,DETAILS[s.n]||{}));
+/* persona applicability: ngo = implementing non-profit, csr = corporate CSR team, fdn = foundation/philanthropy. Default: applies to all. */
+const WHO={"Grant Management System":["csr","fdn"],"Donor Management System":["ngo","fdn"],"Fundraising CRM":["ngo","fdn"],"NGO/CSO Accounting Platform":["ngo","fdn"],"Expense Management System":["ngo","fdn"],"Procurement Platform for CSR/Donors":["csr","fdn"],"Tech-enabled Due Diligence":["csr","fdn"],"Volunteering Portal":["csr","fdn"],"HRMS Portal":["ngo","fdn"],"Knowledge Management System":["ngo","fdn"],"Document Management System":["ngo","fdn"],"ERPNext Implementation":["ngo","fdn"],"CloudSahayak — Cloud & Cost Optimization":["ngo","fdn"],"ESG Platform":["csr"]};
+Object.entries(WHO).forEach(([n,w])=>{const s=SOLUTIONS.find(x=>x.n===n);if(s)s.who=w;});
 
 const CASES=[
  {img:ASSET["case-municipalfinance.jpg"],sec:"Governance",title:"National Municipal Finance Portal",client:"For the Union urban-affairs ministry, with a leading urban-governance non-profit",
@@ -971,19 +978,23 @@ document.getElementById("tileGrid").innerHTML=SECTORS.map(s=>{
 const sectorChips=document.getElementById("sectorChips"),crossChips=document.getElementById("crossChips");
 const grid=document.getElementById("solGrid"),searchBox=document.getElementById("searchBox");
 const countLine=document.getElementById("countLine"),emptyMsg=document.getElementById("emptyMsg");
-let activeDom="all",activeMat="all",FILTERED=[];
+let activeDom="all",activeMat="all",activeWho="all",FILTERED=[];
 const chipHtml=(c,count)=>`<button class="chip" data-d="${c.id}">${c.name}<span class="n">${count}</span></button>`;
 sectorChips.innerHTML=`<button class="chip active" data-d="all">All solutions<span class="n">${SOLUTIONS.length}</span></button>`+SECTORS.filter(s=>s.id!=="back").map(c=>chipHtml(c,counts[c.id]||0)).join("")+PROGX.map(c=>chipHtml(c,counts[c.id]||0)).join("");
 crossChips.innerHTML=BACK.map(c=>chipHtml(c,counts[c.id]||0)).join("");
 const matChips=document.getElementById("matChips");
 matChips.innerHTML=[["all","All maturity"],["proven","Proven at scale"],["tested","Sector-tested"],["ready","Ready to deploy"],["dev","In development"]].map(([id,name])=>`<button class="chip${id==="all"?" active":""}" data-m="${id}">${name}<span class="n">${id==="all"?SOLUTIONS.length:SOLUTIONS.filter(s=>s.b===id).length}</span></button>`).join("");
 matChips.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;activeMat=b.dataset.m;matChips.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c.dataset.m===activeMat));render();});
+const whoChips=document.getElementById("whoChips");
+const whoFits=(s,id)=>id==="all"||!s.who||s.who.includes(id);
+whoChips.innerHTML=[["all","Everyone"],["ngo","NGO / implementer"],["csr","Corporate CSR team"],["fdn","Foundation / philanthropy"]].map(([id,name])=>`<button class="chip${id==="all"?" active":""}" data-w="${id}">${name}<span class="n">${SOLUTIONS.filter(s=>whoFits(s,id)).length}</span></button>`).join("");
+whoChips.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;activeWho=b.dataset.w;whoChips.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c.dataset.w===activeWho));render();});
 const domName=id=>{const f=[...SECTORS,...CROSS].find(x=>x.id===id);return f?f.name:""};
 function render(){
   const q=searchBox.value.trim().toLowerCase();
   const items=SOLUTIONS.filter(s=>{
     const inDom=activeDom==="all"||s.d===activeDom||s.d2===activeDom||(activeDom==="back"&&(isBack(s.d)||isBack(s.d2)));
-    return inDom&&(activeMat==="all"||s.b===activeMat)&&(!q||(s.n+" "+s.p+" "+domName(s.d)+" "+(s.d2?domName(s.d2):"")).toLowerCase().includes(q));
+    return inDom&&(activeMat==="all"||s.b===activeMat)&&whoFits(s,activeWho)&&(!q||(s.n+" "+s.p+" "+domName(s.d)+" "+(s.d2?domName(s.d2):"")).toLowerCase().includes(q));
   });
   grid.innerHTML=items.map(s=>{
     const[cls,label]=BADGE[s.b];
@@ -1036,7 +1047,7 @@ const SOLIMG={
 "Nano-Entrepreneur Bookkeeping App":P.tailor,"Doorstep Incubation Support Platform":P.vendor,"Youth Career & Entrepreneurship Hub":P.classroom,
 "Grant Management System":ASSET["case-csr.jpg"],"Fundraising CRM":ASSET["case-orgperf.jpg"],"NGO/CSO Accounting Platform":ASSET["case-municipalfinance.jpg"],"Procurement Platform for CSR/Donors":ASSET["case-foodsupplies.jpg"],
 "Learning Management System":ASSET["case-english.jpg"],"Skilling Portal":ASSET["case-skilling.jpg"],"Student Assessment Portal":ASSET["case-edtech.jpg"],"Training Management Portal":P.sewing,"Mentorship Platform":P.chw,"Volunteering Portal":P.womenwork,"Scholarship Portal":P.girl,
-"IVRS (Voice Response Systems)":P.farmerportrait,"Chatbots (WhatsApp-native)":ASSET["case-english.jpg"],"Generative AI Solutions":ASSET["case-nutrition.jpg"],"ERPNext Implementation":ASSET["case-foodsupplies.jpg"],"ESG Platform":ASSET["case-csr.jpg"],"Decision Support / Analytics Portal":ASSET["case-ultrapoor.jpg"],"Public Data & Transparency Portals":ASSET["case-nutrition.jpg"],"CRM for Lead Gen & Onboarding":ASSET["case-skilling.jpg"],"Website Development":ASSET["case-municipalfinance.jpg"],"Tech-enabled Due Diligence":ASSET["case-edtech.jpg"]
+"IVRS (Voice Response Systems)":P.farmerportrait,"Chatbots (WhatsApp-native)":ASSET["case-english.jpg"],"Generative AI Solutions":ASSET["case-nutrition.jpg"],"ERPNext Implementation":ASSET["case-foodsupplies.jpg"],"ESG Platform":ASSET["case-csr.jpg"],"Decision Support / Analytics Portal":ASSET["case-ultrapoor.jpg"],"Public Data & Transparency Portals":ASSET["case-nutrition.jpg"],"CRM for Lead Gen & Onboarding":ASSET["case-skilling.jpg"],"Website Development":ASSET["case-municipalfinance.jpg"],"Tech-enabled Due Diligence":ASSET["case-edtech.jpg"],"CloudSahayak — Cloud & Cost Optimization":"https://cloudsahayak.dhwaniris.com/cloudsahayak-logo.png"
 };
 /* relevance overrides — matched to solution subject */
 Object.assign(SOLIMG,{
@@ -1085,7 +1096,7 @@ function openDrawer(i){
      ${c?`<h4>Related case story</h4><div class="d-case" data-case="${s.case}"><img src="${c.img}" alt=""><div><b>${c.title}</b><span>${c.client}</span></div></div>`:""}
      <div class="d-cta">
        <a class="btn btn-primary btn-sm" href="mailto:sunandan@dhwaniris.com?subject=${encodeURIComponent("Enquiry — "+s.n)}">Discuss this solution</a>
-       <button class="btn btn-sm" style="background:var(--paper);color:var(--ink-soft);border:1.5px solid var(--line)" id="drawerClose2">Back to catalogue</button>
+       ${s.url?`<a class="btn btn-sm" style="background:var(--tint-orange);color:var(--orange-deep);border:1.5px solid #f3ddc2" href="${s.url}" target="_blank" rel="noopener">Visit site ↗</a>`:""}<button class="btn btn-sm" style="background:var(--paper);color:var(--ink-soft);border:1.5px solid var(--line)" id="drawerClose2">Back to catalogue</button>
      </div>
    </div>
    <div class="d-navbar">
