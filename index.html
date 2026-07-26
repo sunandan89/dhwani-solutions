@@ -183,16 +183,16 @@ nav.solid .burger svg{stroke:var(--ink)}
 
 /* platforms */
 .plat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:20px;margin-top:44px}
-.plat{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.plat{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
 .plat:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .plat::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--maroon),var(--orange))}
 .plat .icon{width:52px;height:52px;border-radius:14px;background:var(--tint-orange);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 .plat .icon svg{stroke:var(--orange-deep)}
-.plat h3{font-size:23px;font-weight:600;margin-bottom:4px}
+.plat h3{font-size:23px;font-weight:600;margin-bottom:4px;min-height:1.9em}
 .plat .tag{font-size:13px;font-weight:600;color:var(--orange-deep);margin-bottom:12px}
 .plat p{font-size:14.5px;color:var(--ink-soft);margin-bottom:14px}
 .plat .proof{font-size:13px;color:var(--maroon);background:var(--tint-maroon);border-radius:10px;padding:10px 14px;margin-bottom:16px;font-weight:500;font-style:italic}
-.plat .nums{display:flex;flex-wrap:wrap;gap:8px}
+.plat .nums{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
 .plat .nums span{font-size:12.5px;font-weight:700;color:var(--maroon);background:var(--tint-maroon);padding:5px 12px;border-radius:99px}
 
 /* cases */
@@ -206,12 +206,14 @@ nav.solid .burger svg{stroke:var(--ink)}
 .case .shot .sec{position:absolute;top:12px;left:12px;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:rgba(255,255,255,.94);color:var(--maroon);padding:5px 12px;border-radius:99px;box-shadow:0 3px 10px rgba(0,0,0,.12)}
 .case .shot .zoom{position:absolute;right:12px;bottom:12px;width:34px;height:34px;border-radius:50%;background:rgba(33,21,24,.65);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s}
 .case:hover .shot .zoom{opacity:1}
-.case .body{padding:22px 24px 24px}
+.case{display:flex;flex-direction:column}
+.case .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.case .chips{margin-top:auto}
 .case h3{font-size:19px;font-weight:600;line-height:1.3;margin-bottom:6px}
 .case .client{font-size:13px;color:var(--grey);font-style:italic;margin-bottom:12px}
 .case .chips{display:flex;flex-wrap:wrap;gap:7px}
 .case .chips span{font-size:12px;font-weight:700;color:var(--maroon);background:var(--tint-maroon);padding:4px 11px;border-radius:99px}
-.case .more{margin-top:14px;font-size:13.5px;font-weight:600;color:var(--orange-deep);display:inline-flex;align-items:center;gap:6px}
+.case .more{margin-top:14px;align-self:flex-start;font-size:13.5px;font-weight:600;color:var(--orange-deep);display:inline-flex;align-items:center;gap:6px}
 
 /* lightbox */
 .modal-bg{position:fixed;inset:0;background:rgba(26,10,13,.72);backdrop-filter:blur(7px);z-index:80;display:none;align-items:center;justify-content:center;padding:20px}
@@ -239,9 +241,9 @@ nav.solid .burger svg{stroke:var(--ink)}
 
 /* map */
 #footprint{background:var(--card);border-bottom:1px solid var(--line)}
-.map-flex{display:flex;gap:50px;align-items:center;margin-top:20px;flex-wrap:wrap}
-.map-box{flex:1.1;min-width:320px}
-.map-box svg{width:100%;height:auto}
+.map-flex{display:flex;gap:56px;align-items:center;margin-top:28px;flex-wrap:wrap;justify-content:center}
+.map-box{flex:1.1;min-width:320px;max-width:520px}
+.map-box svg{width:100%;height:auto;max-height:520px;display:block;margin:0 auto}
 .map-side{flex:1;min-width:280px}
 .map-stat{display:flex;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
 .map-stat b{font-family:var(--serif);font-size:34px;font-weight:600;color:var(--maroon);min-width:120px}
@@ -257,11 +259,11 @@ nav.solid .burger svg{stroke:var(--ink)}
 .trust{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
 .trust .icon{width:46px;height:46px;border-radius:12px;background:var(--tint-maroon);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .trust .icon svg{stroke:var(--maroon)}
-.trust h3{font-size:17.5px;font-weight:600;margin-bottom:6px}
+.trust h3{font-size:17.5px;font-weight:600;margin-bottom:6px;min-height:2.5em}
 .trust p{font-size:14px;color:var(--ink-soft)}
 
 /* cta */
-#contact{padding:0 0 100px}
+#contact{padding:0 0 70px}
 .cta-box{position:relative;border-radius:28px;padding:80px 40px;text-align:center;color:#fff;overflow:hidden;background:#4a1016}
 .cta-box .cta-bg{position:absolute;inset:0}
 .cta-box .cta-bg img{width:100%;height:100%;object-fit:cover;opacity:.4}
@@ -278,7 +280,7 @@ footer{border-top:1px solid var(--line);padding:38px 0;background:var(--paper)}
 .foot img{height:32px}
 .foot p{font-size:13.5px;color:var(--grey)}
 .foot a{font-weight:600}
-.float-cta{position:fixed;bottom:26px;right:26px;z-index:70;opacity:0;pointer-events:none;transform:translateY(14px);transition:all .3s}
+.float-cta{position:fixed;bottom:26px;right:26px;z-index:70;box-shadow:0 10px 30px rgba(94,13,22,.45);opacity:0;pointer-events:none;transform:translateY(14px);transition:all .3s}
 .float-cta.show{opacity:1;pointer-events:auto;transform:translateY(0)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.vis{opacity:1;transform:none}
@@ -306,7 +308,7 @@ html{scrollbar-color:var(--maroon) var(--paper-2)}
 #platforms .plat .nums span{background:rgba(255,255,255,.08);color:#f7c9a4}
 
 /* giant footer wordmark */
-.foot-word{overflow:hidden;padding:30px 0 0;background:var(--paper)}
+.foot-word{overflow:hidden;padding:0;margin-top:-26px;background:var(--paper)}
 .foot-word div{font-family:var(--serif);font-weight:700;font-size:clamp(90px,17vw,250px);line-height:.78;text-align:center;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px rgba(135,19,32,.22);user-select:none;transform:translateY(12%)}
 .scroll-cue{position:absolute;left:50%;bottom:110px;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.75);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
 .scroll-cue span{display:block;width:1.5px;height:34px;background:linear-gradient(180deg,var(--orange),transparent);animation:cue 1.8s ease-in-out infinite}
@@ -325,6 +327,8 @@ html{scrollbar-color:var(--maroon) var(--paper-2)}
 .serve.s-light{background:var(--card);border:1px solid var(--line)}
 .serve.s-tint{background:var(--tint-orange);border:1px solid #f3ddc2}
 .serve.s-dark{background:#241015;color:#f5ece6}
+.serve .s-head{display:flex;flex-direction:column;justify-content:flex-start}
+@media(min-width:921px){.serve .s-head{min-height:140px}}
 .serve .s-ico{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--tint-maroon);margin-bottom:18px}
 .serve .s-ico svg{stroke:var(--maroon)}
 .serve.s-dark .s-ico{background:rgba(243,134,52,.16)}
@@ -404,6 +408,8 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
   .hero-stats{position:static;margin-top:44px;background:rgba(33,10,13,.88)}
   .modal .inner{padding:24px 22px 28px}
   .mnav{display:none}
+  .float-cta{bottom:16px;right:16px;padding:12px 16px;font-size:0;gap:0}
+  .float-cta svg{width:20px;height:20px}
 }
 @media(max-width:560px){.tile-grid{grid-template-columns:1fr}.tile{aspect-ratio:3/2}}
 </style>
@@ -562,8 +568,8 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
     <div class="serve-grid">
       <div class="serve s-light reveal">
         <div class="s-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3>Donors, CSRs &amp; Foundations</h3>
-        <div class="s-sub">Funders managing portfolios of partners and programs</div>
+        <div class="s-head"><h3>Donors, CSRs &amp; Foundations</h3>
+        <div class="s-sub">Funders managing portfolios of partners and programs</div></div>
         <ol>
           <li><i>01</i>Grant &amp; CSR lifecycle management on mGrant</li>
           <li><i>02</i>Partner due diligence, compliance &amp; fund tracking</li>
@@ -573,8 +579,8 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
       </div>
       <div class="serve s-tint reveal">
         <div class="s-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>NGOs &amp; Implementers</h3>
-        <div class="s-sub">Organisations delivering programs in the field</div>
+        <div class="s-head"><h3>NGOs &amp; Implementers</h3>
+        <div class="s-sub">Organisations delivering programs in the field</div></div>
         <ol>
           <li><i>01</i>Offline-first field data collection &amp; program MIS</li>
           <li><i>02</i>Sector solutions — health, agri, education, livelihoods</li>
@@ -584,8 +590,8 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
       </div>
       <div class="serve s-dark reveal">
         <div class="s-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M5 22V11M19 22V11M3 11h18L12 3 3 11z"/><path d="M9 22v-6h6v6"/></svg></div>
-        <h3>Governments &amp; Multilaterals</h3>
-        <div class="s-sub">Ministries, missions and agencies serving citizens</div>
+        <div class="s-head"><h3>Governments &amp; Multilaterals</h3>
+        <div class="s-sub">Ministries, missions and agencies serving citizens</div></div>
         <ol>
           <li><i>01</i>Public portals &amp; financial transparency platforms</li>
           <li><i>02</i>National program dashboards &amp; analytics</li>
