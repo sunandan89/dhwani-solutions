@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dhwani RIS — Digital Solutions Catalogue</title>
-<meta name="description" content="Technology for the development sector: 69 digital solutions across Health, Agriculture, Education, Climate, Governance and more. 300+ projects, 140+ clients, 6 countries.">
+<meta name="description" content="Technology for the development sector: 70 digital solutions across Health, Agriculture, Education, Climate, Governance and more. 300+ projects, 140+ clients, 6 countries.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -131,6 +131,10 @@ nav.solid .burger svg{stroke:var(--ink)}
 .badge.ready{background:#ecf0f7;color:#38558f}
 .badge.dev{background:#f1ecf4;color:#6a4a86}
 .sol .stat-line{font-size:12.5px;font-weight:600;color:var(--maroon);display:flex;gap:6px;align-items:center}
+.refine-row{display:flex;gap:12px;align-items:center;margin:18px 0 2px;flex-wrap:wrap}
+.r-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.pill-select{padding:10px 16px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink-soft);cursor:pointer;outline:none}
+.pill-select:focus{border-color:var(--orange);box-shadow:0 0 0 4px rgba(243,134,52,.15)}
 .empty{padding:60px 20px;text-align:center;color:var(--grey);font-size:16px;display:none}
 .count-line{font-size:14px;color:var(--grey);margin-top:6px}
 .sol{cursor:pointer}
@@ -438,7 +442,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
   <div class="wrap">
     <div class="hero-kicker">Dhwani RIS · Technology for the development sector</div>
     <h1>&ldquo;What have you built in&nbsp;<span class="rotator" id="rotator">Health</span>?&rdquo;<br><em>Glad you asked.</em></h1>
-    <p class="sub">69 digital solutions across every domain where impact happens — built since 2012 for foundations, non-profits, CSRs, governments and multilaterals.</p>
+    <p class="sub">70 digital solutions across every domain where impact happens — built since 2012 for foundations, non-profits, CSRs, governments and multilaterals.</p>
     <div class="hero-cta">
       <a class="btn btn-white" href="#domains">Explore by domain
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
@@ -480,7 +484,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
     <div class="explorer-head reveal">
       <div>
         <div class="kicker"><span class="num">02</span>The full catalogue</div>
-        <h2 class="h2">69 solutions, <span class="acc">one search</span> away</h2>
+        <h2 class="h2">70 solutions, <span class="acc">one search</span> away</h2>
         <p class="lede">Filter by sector or search for exactly what you need — from malnutrition tracking to FPO ERPs.</p>
       </div>
       <div class="search">
@@ -492,10 +496,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
     <div class="chip-row" id="sectorChips"></div>
     <div class="chip-label">Back office tech · by owning function</div>
     <div class="chip-row" id="crossChips"></div>
-    <div class="chip-label">By maturity</div>
-    <div class="chip-row" id="matChips"></div>
-    <div class="chip-label">Who are you?</div>
-    <div class="chip-row" id="whoChips"></div>
+    <div class="refine-row"><span class="r-label">Refine</span><select id="matSel" class="pill-select" aria-label="Filter by maturity"></select><select id="whoSel" class="pill-select" aria-label="Filter by who you are"></select></div>
     <div class="count-line" id="countLine"></div>
     <div class="sol-grid" id="solGrid"></div>
     <div class="empty" id="emptyMsg">No solutions match that search — but that rarely means we haven't done it. <a href="#contact">Ask us.</a></div>
@@ -577,7 +578,7 @@ body.cur-on .cursor-dot,body.cur-on .cursor-ring{display:block}
           <li><i>02</i>Sector solutions — health, agri, education, livelihoods</li>
           <li><i>03</i>Learning platforms &amp; frontline capacity building</li>
         </ol>
-        <span class="s-link" data-go="all">Browse all 69 solutions <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="s-link" data-go="all">Browse all 70 solutions <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
       <div class="serve s-dark reveal">
         <div class="s-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M5 22V11M19 22V11M3 11h18L12 3 3 11z"/><path d="M9 22v-6h6v6"/></svg></div>
@@ -787,13 +788,14 @@ const SOLUTIONS=[
  {d:"pc",n:"HRMS Portal",b:"ready",p:"HR management for growing development organisations."},
  {d:"ops",n:"ERPNext Implementation",b:"proven",p:"Implementation and customisation of the open-source ERPNext suite."},
  {d:"ops",n:"CloudSahayak — Cloud & Cost Optimization",b:"proven",p:"Cloud consulting for non-profits: AWS cost optimization, migration, DevOps and cloud security.",s:"40+ organisations · 30–40% cloud cost savings"},
+ {d:"fin",n:"DPDP Compliance & Consent (Anumati)",b:"ready",p:"DPDP Act readiness — from mindset change to independent audit — plus Anumati, our plug-and-play consent manager.",s:"Full enforcement May 2027 — the runway is now"},
  {d:"fin",n:"ESG Platform",b:"tested",p:"ESG data capture, scoring and disclosure reporting."},
  {d:"mel",n:"Decision Support / Analytics Portal",b:"proven",p:"Custom analytics portals that turn program data into decisions."},
  {d:"mel",n:"Public Data & Transparency Portals",b:"proven",p:"The generic capability: citizen- and stakeholder-facing open-data portals for any program or government dataset."},
  {d:"chan",n:"CRM for Lead Gen & Onboarding",b:"ready",p:"Lead generation, onboarding and training pipelines for outreach-heavy programs."},
  {d:"ops",n:"Website Development",b:"proven",p:"Fast, accessible websites for non-profits and programs."},
  {d:"chan",n:"Voice AI",b:"tested",p:"Speech interfaces and voice-based assessments in Indian languages."},
- {d:"ops",n:"Tech-enabled Due Diligence",b:"tested",p:"Digital workflows for NGO due diligence and partner assessment."}
+ {d:"fin",n:"Tech-enabled Due Diligence",b:"tested",p:"Digital workflows for NGO due diligence and partner assessment."}
 ];
 const BADGE={proven:["proven","Proven at scale"],tested:["tested","Sector-tested"],ready:["ready","Ready to deploy"],dev:["dev","In development"]};
 const DOMICON={
@@ -879,7 +881,8 @@ const DETAILS={
 "Website Development":{full:"Institutional and programme websites for non-profits, foundations and government bodies.",chips:["Institutional sites","Program microsites","Accessible & fast"]},
 "Voice AI":{full:"Voice-based automation and interaction layers built on modern speech AI, including voice-enabled assessments in Indian languages.",chips:["Speech interfaces","Indian languages","Voice assessments"]},
 "Tech-enabled Due Diligence":{full:"Digitised due-diligence workflows to speed up and standardise partner and vendor assessment.",chips:["Partner assessment","Standardised workflows","Faster turnaround"]},
-"CloudSahayak — Cloud & Cost Optimization":{full:"Dhwani's dedicated cloud practice for the development sector: cloud consulting, AWS cost optimization, cloud migration, DevOps and cloud security — packaged for non-profit budgets. 40+ organisations supported, with cloud bills typically reduced by 30–40%.",chips:["Cloud cost optimization","AWS migration","DevOps & managed infra","Cloud security"],url:"https://cloudsahayak.dhwaniris.com"}
+"CloudSahayak — Cloud & Cost Optimization":{full:"Dhwani's dedicated cloud practice for the development sector: cloud consulting, AWS cost optimization, cloud migration, DevOps and cloud security — packaged for non-profit budgets. 40+ organisations supported, with cloud bills typically reduced by 30–40%.",chips:["Cloud cost optimization","AWS migration","DevOps & managed infra","Cloud security"],url:"https://cloudsahayak.dhwaniris.com"},
+"DPDP Compliance & Consent (Anumati)":{full:"India's DPDP Act covers every organisation handling Indians' data — non-profits are not exempt, and penalties reach ₹250 crore. Dhwani takes organisations through the full journey: mindset change, an independent data-protection team, old-data clean-up, India data residency, and an independent audit and certificate at the end. Anumati, our consent-manager platform, turns provable consent into one API call — OTP-verified, 22 Indian languages, tamper-evident audit trail.",chips:["DPDP readiness roadmap","DP team setup & data clean-up","India data residency","Anumati consent manager (22 languages)","Independent audit & certificate"],url:"https://dpdp.dhwaniris.com"}
 };
 SOLUTIONS.forEach(s=>Object.assign(s,DETAILS[s.n]||{}));
 /* persona applicability: ngo = implementing non-profit, csr = corporate CSR team, fdn = foundation/philanthropy. Default: applies to all. */
@@ -982,13 +985,12 @@ let activeDom="all",activeMat="all",activeWho="all",FILTERED=[];
 const chipHtml=(c,count)=>`<button class="chip" data-d="${c.id}">${c.name}<span class="n">${count}</span></button>`;
 sectorChips.innerHTML=`<button class="chip active" data-d="all">All solutions<span class="n">${SOLUTIONS.length}</span></button>`+SECTORS.filter(s=>s.id!=="back").map(c=>chipHtml(c,counts[c.id]||0)).join("")+PROGX.map(c=>chipHtml(c,counts[c.id]||0)).join("");
 crossChips.innerHTML=BACK.map(c=>chipHtml(c,counts[c.id]||0)).join("");
-const matChips=document.getElementById("matChips");
-matChips.innerHTML=[["all","All maturity"],["proven","Proven at scale"],["tested","Sector-tested"],["ready","Ready to deploy"],["dev","In development"]].map(([id,name])=>`<button class="chip${id==="all"?" active":""}" data-m="${id}">${name}<span class="n">${id==="all"?SOLUTIONS.length:SOLUTIONS.filter(s=>s.b===id).length}</span></button>`).join("");
-matChips.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;activeMat=b.dataset.m;matChips.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c.dataset.m===activeMat));render();});
-const whoChips=document.getElementById("whoChips");
+const matSel=document.getElementById("matSel"),whoSel=document.getElementById("whoSel");
 const whoFits=(s,id)=>id==="all"||!s.who||s.who.includes(id);
-whoChips.innerHTML=[["all","Everyone"],["ngo","NGO / implementer"],["csr","Corporate CSR team"],["fdn","Foundation / philanthropy"]].map(([id,name])=>`<button class="chip${id==="all"?" active":""}" data-w="${id}">${name}<span class="n">${SOLUTIONS.filter(s=>whoFits(s,id)).length}</span></button>`).join("");
-whoChips.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;activeWho=b.dataset.w;whoChips.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c.dataset.w===activeWho));render();});
+matSel.innerHTML=[["all","Maturity: all"],["proven","Proven at scale"],["tested","Sector-tested"],["ready","Ready to deploy"],["dev","In development"]].map(([id,name])=>`<option value="${id}">${name} (${id==="all"?SOLUTIONS.length:SOLUTIONS.filter(s=>s.b===id).length})</option>`).join("");
+whoSel.innerHTML=[["all","Who are you? Everyone"],["ngo","NGO / implementer"],["csr","Corporate CSR team"],["fdn","Foundation / philanthropy"]].map(([id,name])=>`<option value="${id}">${name} (${SOLUTIONS.filter(s=>whoFits(s,id)).length})</option>`).join("");
+matSel.addEventListener("change",()=>{activeMat=matSel.value;render();});
+whoSel.addEventListener("change",()=>{activeWho=whoSel.value;render();});
 const domName=id=>{const f=[...SECTORS,...CROSS].find(x=>x.id===id);return f?f.name:""};
 function render(){
   const q=searchBox.value.trim().toLowerCase();
@@ -1047,7 +1049,7 @@ const SOLIMG={
 "Nano-Entrepreneur Bookkeeping App":P.tailor,"Doorstep Incubation Support Platform":P.vendor,"Youth Career & Entrepreneurship Hub":P.classroom,
 "Grant Management System":ASSET["case-csr.jpg"],"Fundraising CRM":ASSET["case-orgperf.jpg"],"NGO/CSO Accounting Platform":ASSET["case-municipalfinance.jpg"],"Procurement Platform for CSR/Donors":ASSET["case-foodsupplies.jpg"],
 "Learning Management System":ASSET["case-english.jpg"],"Skilling Portal":ASSET["case-skilling.jpg"],"Student Assessment Portal":ASSET["case-edtech.jpg"],"Training Management Portal":P.sewing,"Mentorship Platform":P.chw,"Volunteering Portal":P.womenwork,"Scholarship Portal":P.girl,
-"IVRS (Voice Response Systems)":P.farmerportrait,"Chatbots (WhatsApp-native)":ASSET["case-english.jpg"],"Generative AI Solutions":ASSET["case-nutrition.jpg"],"ERPNext Implementation":ASSET["case-foodsupplies.jpg"],"ESG Platform":ASSET["case-csr.jpg"],"Decision Support / Analytics Portal":ASSET["case-ultrapoor.jpg"],"Public Data & Transparency Portals":ASSET["case-nutrition.jpg"],"CRM for Lead Gen & Onboarding":ASSET["case-skilling.jpg"],"Website Development":ASSET["case-municipalfinance.jpg"],"Tech-enabled Due Diligence":ASSET["case-edtech.jpg"],"CloudSahayak — Cloud & Cost Optimization":"https://cloudsahayak.dhwaniris.com/cloudsahayak-logo.png"
+"IVRS (Voice Response Systems)":P.farmerportrait,"Chatbots (WhatsApp-native)":ASSET["case-english.jpg"],"Generative AI Solutions":ASSET["case-nutrition.jpg"],"ERPNext Implementation":ASSET["case-foodsupplies.jpg"],"ESG Platform":ASSET["case-csr.jpg"],"Decision Support / Analytics Portal":ASSET["case-ultrapoor.jpg"],"Public Data & Transparency Portals":ASSET["case-nutrition.jpg"],"CRM for Lead Gen & Onboarding":ASSET["case-skilling.jpg"],"Website Development":ASSET["case-municipalfinance.jpg"],"Tech-enabled Due Diligence":ASSET["case-edtech.jpg"],"CloudSahayak — Cloud & Cost Optimization":"https://cloudsahayak.dhwaniris.com/cloudsahayak-logo.png","DPDP Compliance & Consent (Anumati)":U("1667372283496-893f0b1e7c16")
 };
 /* relevance overrides — matched to solution subject */
 Object.assign(SOLIMG,{
